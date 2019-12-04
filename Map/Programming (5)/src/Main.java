@@ -25,29 +25,29 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
+        /*
+        expected
+        2 4
+        3
+         */
+
         from = scanner.nextInt();
         to = scanner.nextInt();
-
-
         pairsCount = scanner.nextInt();
-
-//        System.out.println(String.format("from: %d, to: %d, count: %d",
-//                from, to, pairsCount));
-//        System.out.println("Please enter pairs:");
 
 
         for (int i = 0; i < pairsCount; i++) {
+            /*
+            expected 1 aa and so on
+             */
             pairs.put(scanner.nextInt(), scanner.nextLine().trim());
 
         }
 
-
-        for (Map.Entry<Integer, String> pair : pairs.entrySet()) {
-            Integer thisKey = pair.getKey();
+        for (Integer thisKey : pairs.keySet()) {
             if (thisKey >= from && thisKey <= to) {
-                System.out.println(String.format("%d %s", thisKey, pair.getValue()));
+                System.out.println(String.format("%d %s", thisKey, pairs.get(thisKey)));
             }
-            //ctlrl - alt  - l => rearrange all code
         }
     }
 }
