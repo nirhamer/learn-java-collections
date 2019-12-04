@@ -9,14 +9,10 @@ public class Main {
 
 
     Map<String, Integer> map = new TreeMap<>();
-    map.put("Alpha=1", Gamma=3", Omega=24");
+    map.put("Omega", 24);
+    map.put("Alpha", 1);
+    map.put("Gamma", 3);
 
-
-
-    for(String key : map.keySet())
-      System.out.println(key + "=" + map.get(key));
-
-
-
+    System.out.println(map);
   }
 }
