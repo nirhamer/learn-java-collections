@@ -22,7 +22,8 @@ public class Main {
       System.out.print(i + " ");
       List<?> index1 = null;
       int index2 = 0;
-      Collections.swap(index1,index2,);
+      //TODO: fix the code
+      //Collections.swap(index1,index2,);
       System.out.println("After swap: "+index2);
     }
   }
