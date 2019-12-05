@@ -22,18 +22,48 @@ public class Main {
 
     public static void main(String[] args) {
 
-        fillTable();
-        final String input = "abcd";
-        System.out.println("Input:  "+input);
-        final String encoded = encodingFunction(input);
-        final String original = decodingFunction(encoded);
-        System.out.println("Encoded:  "+encoded);
-        System.out.println("Decoded:  "+original);
+        Scanner scanner = new Scanner(System.in);
 
+        String sample;
+        String encoded;
+        String toEncode;
+        String toDecode;
+
+
+        sample = scanner.nextLine().trim();
+        encoded = scanner.nextLine().trim();
+        toEncode = scanner.nextLine().trim();
+        toDecode = scanner.nextLine().trim();
+
+
+//        sample = "abcd";
+//        encoded = "*d%#";
+
+        calculateKeys(sample, encoded);
+
+        final String decodedSample = decodeString(encoded);
+//        System.out.println("Input:  "+sample);
+//        System.out.println("Decoded:  "+decodedSample);
+
+
+        System.out.println( encodeString(toEncode));
+        System.out.println( decodeString(toDecode));
 
     }
 
-    private static String decodingFunction(String input) {
+    /**
+     * This will fill in encryption and decryption tables
+     * @param sample a sample string
+     * @param encoded it's encoded version
+     */
+    private static void calculateKeys(String sample, String encoded) {
+        for (int i = 0; i < sample.length(); i++) {
+            encodingTable.put(sample.charAt(i), encoded.charAt(i));
+            decodingTable.put(encoded.charAt(i),sample.charAt(i));
+        }
+    }
+
+    private static String decodeString(String input) {
         final int length = input.length();
         char[] out = new char[length];
         for (int i = 0; i < length; i++) {
@@ -57,7 +87,7 @@ public class Main {
     }
 
 
-    private static String encodingFunction(String input) {
+    private static String encodeString(String input) {
         final int length = input.length();
         char[] out = new char[length];
         for (int i = 0; i < length; i++) {
